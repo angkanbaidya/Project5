@@ -1,0 +1,26 @@
+li $s4,0
+li $s5,3
+li $s6,0
+li $s7,4
+
+setfirst:
+move $t1,$s4
+j setsecond
+
+setsecond:
+andi $t1,$t1,0xffff00ff
+sll $t5,$s5,8 
+or $t1,$t5,$t1
+j setthird
+
+setthird:
+andi $t1,$t1,0xff00fff
+sll $t5,$s6,16
+or $t1,$t5,$t1
+j setfourth
+
+setfourth:
+andi $t1,$t1,0x00ffffff
+sll $t5,$s7,24
+or $t1,$t5,$t1
+li $t9,6
